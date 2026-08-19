@@ -39,7 +39,7 @@ class TicketCrudTest extends TestCase
         $response
             ->assertOk()
             ->assertInertia(fn (Assert $page) => $page
-                ->component('tickets/index', false)
+                ->component('tickets/index')
                 ->has('tickets.data', 2)
                 ->has('statuses', 3)
                 ->has('priorities', 4)
@@ -60,7 +60,7 @@ class TicketCrudTest extends TestCase
         $response
             ->assertOk()
             ->assertInertia(fn (Assert $page) => $page
-                ->component('tickets/show', false)
+                ->component('tickets/show')
                 ->where('ticket.id', $ticket->id)
                 ->where('ticket.title', 'Attachment upload fails')
                 ->where('ticket.status.value', 'open')
@@ -76,7 +76,7 @@ class TicketCrudTest extends TestCase
         $response
             ->assertOk()
             ->assertInertia(fn (Assert $page) => $page
-                ->component('tickets/create', false)
+                ->component('tickets/create')
                 ->has('statuses', 3)
                 ->has('priorities', 4)
                 ->has('categories', 3)
@@ -144,7 +144,7 @@ class TicketCrudTest extends TestCase
         $response
             ->assertOk()
             ->assertInertia(fn (Assert $page) => $page
-                ->component('tickets/edit', false)
+                ->component('tickets/edit')
                 ->where('ticket.id', $ticket->id)
                 ->has('statuses', 3)
                 ->has('priorities', 4)
@@ -232,7 +232,7 @@ class TicketCrudTest extends TestCase
         $response
             ->assertOk()
             ->assertInertia(fn (Assert $page) => $page
-                ->component('tickets/index', false)
+                ->component('tickets/index')
                 ->has('tickets.data', 1)
                 ->where('tickets.data.0.title', 'Open ticket')
                 ->where('filters.status', 'open'));
@@ -249,7 +249,7 @@ class TicketCrudTest extends TestCase
         $response
             ->assertOk()
             ->assertInertia(fn (Assert $page) => $page
-                ->component('tickets/index', false)
+                ->component('tickets/index')
                 ->has('tickets.data', 1)
                 ->where('tickets.data.0.title', 'Critical priority ticket')
                 ->where('filters.priority', 'critical'));
