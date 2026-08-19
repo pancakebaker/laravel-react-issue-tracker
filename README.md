@@ -1,5 +1,6 @@
 # Laravel React Issue Tracker
 
+[![tests](https://github.com/pancakebaker/laravel-react-issue-tracker/actions/workflows/tests.yml/badge.svg)](https://github.com/pancakebaker/laravel-react-issue-tracker/actions/workflows/tests.yml)
 ![Laravel 12](https://img.shields.io/badge/Laravel-12-FF2D20?style=flat-square&logo=laravel&logoColor=white)
 ![React 19](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=111111)
 ![Inertia.js](https://img.shields.io/badge/Inertia.js-2.0-9553E9?style=flat-square)
