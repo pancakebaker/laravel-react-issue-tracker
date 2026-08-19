@@ -9,7 +9,7 @@
 ![Auth](https://img.shields.io/badge/Auth-enabled-2E7D32?style=flat-square)
 ![PHPUnit](https://img.shields.io/badge/PHPUnit-11-366488?style=flat-square)
 
-A small authenticated issue-management module built with Laravel, React, TypeScript, and Inertia. It focuses on straightforward ticket CRUD, server-side validation, filtering, pagination, and a responsive interface suitable for a technical assessment.
+A small authenticated issue-management module built with Laravel, React, TypeScript, and Inertia, with ticket CRUD, server-side validation, filtering, pagination, and a responsive interface.
 
 ## Features
 
@@ -79,7 +79,7 @@ These credentials are for local/demo use only.
 
 ### Why Laravel + Inertia + React
 
-Inertia allows the application to use React for the UI while keeping Laravel routing, validation, redirects, and controller-driven application flow. A separate REST API would be appropriate if independent clients, mobile apps, or an externally consumed API became requirements, but it would add unnecessary surface area for this small assessment module.
+Inertia allows the application to use React for the UI while keeping Laravel routing, validation, redirects, and controller-driven application flow. A separate REST API would be appropriate if independent clients, mobile apps, or external consumers became requirements, but it would add unnecessary surface area for this application.
 
 ### Validation
 
@@ -95,7 +95,7 @@ The application intentionally avoids service or repository layers because the cu
 
 ### Database
 
-SQLite was chosen for easy reviewer setup, no external database service, and enough capability for the assessment. The implementation uses Eloquent models and migrations, so moving to MySQL or PostgreSQL would mainly be a configuration and deployment decision.
+SQLite was chosen for easy reviewer setup, no external database service, and enough capability for this project. The implementation uses Eloquent models and migrations, so moving to MySQL or PostgreSQL would mainly be a configuration and deployment decision.
 
 ## Filtering and Pagination
 
@@ -125,7 +125,7 @@ composer audit
 
 ## AI Usage
 
-ChatGPT/Codex was used for implementation assistance, review, and iteration. The generated output was treated as a draft and verified through tests, static checks, dependency audits, and code review.
+ChatGPT/Codex was used during implementation, review, and iteration. I verified generated changes through tests, static analysis, dependency audits, and code review rather than accepting them automatically.
 
 One concrete correction came up during factory development. AI suggested a nullable Faker chain equivalent to:
 
@@ -135,15 +135,12 @@ fake()->optional(...)->dateTimeBetween(...)->format(...)
 
 Because `optional()` can return `null`, `format()` could be called on `null`, and `php artisan migrate:fresh --seed` exposed the failure. The factory was corrected to explicitly branch between a generated/formatted date and `null`.
 
-The lesson was simple: AI output was not assumed correct; executable verification caught the issue before submission.
-
-## Security / Configuration Notes
+## Security / Configuration
 
 - Ticket routes require authentication.
 - Public self-registration is disabled.
-- Laravel CSRF protection applies to form submissions.
-- No secrets are committed.
-- Local environment configuration belongs in `.env`.
+- Laravel's standard CSRF protection applies to form submissions.
+- Environment-specific configuration is kept in `.env`, which is excluded from version control.
 
 ## Future Improvements
 
