@@ -11,7 +11,7 @@ import { useInitials } from '@/hooks/use-initials';
 import { cn } from '@/lib/utils';
 import { type BreadcrumbItem, type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid, Menu, Search, Ticket } from 'lucide-react';
+import { Folder, LayoutGrid, Menu, Search, Ticket } from 'lucide-react';
 import AppLogo from './app-logo';
 import AppLogoIcon from './app-logo-icon';
 
@@ -33,11 +33,6 @@ const rightNavItems: NavItem[] = [
         title: 'Repository',
         url: 'https://github.com/pancakebaker/laravel-react-issue-tracker',
         icon: Folder,
-    },
-    {
-        title: 'Documentation',
-        url: 'https://laravel.com/docs',
-        icon: BookOpen,
     },
 ];
 

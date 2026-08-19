@@ -242,7 +242,14 @@ interface SummaryLinkProps {
 
 function SummaryLink({ label, count, href, active }: SummaryLinkProps) {
     return (
-        <Link href={href} className={active ? 'border-primary bg-muted border p-4' : 'hover:bg-muted/50 border p-4'}>
+        <Link
+            href={href}
+            className={
+                active
+                    ? 'border-primary bg-muted focus-visible:ring-ring border p-4 focus-visible:ring-2 focus-visible:outline-none'
+                    : 'focus-visible:ring-ring hover:bg-muted/50 border p-4 focus-visible:ring-2 focus-visible:outline-none'
+            }
+        >
             <div className="text-muted-foreground text-sm">{label}</div>
             <div className="mt-1 text-2xl font-semibold">{count}</div>
         </Link>

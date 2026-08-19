@@ -10,20 +10,22 @@
 ![Auth](https://img.shields.io/badge/Auth-enabled-2E7D32?style=flat-square)
 ![PHPUnit](https://img.shields.io/badge/PHPUnit-11-366488?style=flat-square)
 
-A small authenticated issue-management module built with Laravel, React, TypeScript, and Inertia, with ticket CRUD, server-side validation, filtering, pagination, and a responsive interface.
+An authenticated issue-management application built with Laravel 12, React 19, TypeScript, Inertia.js, and Tailwind CSS. It includes ticket CRUD, dashboard summaries, server-side validation and filtering, pagination, and a responsive interface.
 
 ## Features
 
 - Authenticated ticket management
+- Dashboard with ticket status summaries
+- Recent tickets on the dashboard
+- Dashboard shortcuts into all, open, in-progress, and resolved ticket views
 - Create, read, update, and delete tickets
 - Status, priority, and category backed enums
 - Status and priority filtering
 - Paginated ticket list
-- Ticket summary counts
 - Server-side validation surfaced in React
 - Success flash messages
-- Responsive ticket index and detail views
-- Feature tests for the main ticket workflows
+- Responsive dashboard, ticket index, and detail views
+- Feature tests covering dashboard and ticket workflows
 
 ## Tech Stack
 
@@ -48,24 +50,35 @@ cp .env.example .env
 php artisan key:generate
 php -r "file_exists('database/database.sqlite') || touch('database/database.sqlite');"
 php artisan migrate --seed
-npm run build
 ```
 
-To run the application locally:
+Start the development environment:
+
+```bash
+composer run dev
+```
+
+This starts the Laravel server, queue listener, application logs through Pail, and Vite development server together.
+
+Open:
+
+```text
+http://localhost:8000
+```
+
+If `composer run dev` is unavailable because Pail's `pcntl` requirement is not supported in the local environment, use the two-terminal fallback.
+
+Terminal 1:
 
 ```bash
 php artisan serve
 ```
 
-Open the local URL shown by the command, usually `http://127.0.0.1:8000`.
-
-For active frontend development, run Vite in a second terminal:
+Terminal 2:
 
 ```bash
 npm run dev
 ```
-
-The project also includes the Laravel starter's `composer run dev` convenience script, but the documented two-terminal flow avoids depending on Pail's `pcntl` requirement on environments where that extension is unavailable.
 
 ## Demo Login
 
@@ -75,6 +88,10 @@ Email: `test@example.com`
 Password: `password`
 
 These credentials are for local/demo use only.
+
+## Scope
+
+This project is intentionally implemented as a focused issue-tracking application rather than a full project-management platform. The emphasis is on clear Laravel/Inertia architecture, validation, maintainability, testing, and a reviewer-friendly local setup.
 
 ## Architecture Decisions
 
@@ -112,6 +129,13 @@ php artisan test
 
 The suite covers the authentication boundary, ticket CRUD, validation, filtering, pagination, summary counts, and model enum/date casting.
 
+Latest verified result:
+
+```text
+48 tests passed
+347 assertions
+```
+
 Additional checks used during development:
 
 ```bash
@@ -124,11 +148,13 @@ npm audit
 composer audit
 ```
 
+The latest verification pass completed successfully for PHPUnit/Laravel tests, Pint, TypeScript type checking, ESLint, formatting check, and production Vite build.
+
 ## AI Usage
 
 ChatGPT/Codex was used during implementation, review, and iteration. I verified generated changes through tests, static analysis, dependency audits, and code review rather than accepting them automatically.
 
-One concrete correction came up during factory development. AI suggested a nullable Faker chain equivalent to:
+One example of this verification came up during factory development. AI suggested a nullable Faker chain equivalent to:
 
 ```php
 fake()->optional(...)->dateTimeBetween(...)->format(...)
