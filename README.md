@@ -1,5 +1,14 @@
 # Laravel React Issue Tracker
 
+![Laravel 12](https://img.shields.io/badge/Laravel-12-FF2D20?style=flat-square&logo=laravel&logoColor=white)
+![React 19](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=111111)
+![Inertia.js](https://img.shields.io/badge/Inertia.js-2.0-9553E9?style=flat-square)
+![PHP 8.2+](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=flat-square&logo=php&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-local-003B57?style=flat-square&logo=sqlite&logoColor=white)
+![Auth](https://img.shields.io/badge/Auth-enabled-2E7D32?style=flat-square)
+![PHPUnit](https://img.shields.io/badge/PHPUnit-11-366488?style=flat-square)
+
 A small authenticated issue-management module built with Laravel, React, TypeScript, and Inertia. It focuses on straightforward ticket CRUD, server-side validation, filtering, pagination, and a responsive interface suitable for a technical assessment.
 
 ## Features
